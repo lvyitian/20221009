@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"></meta>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <title>日用品自动订购机</title>
 	<h1><center>日用品自动订购机</center></h1>
+    <iframe id="if1" frameborder="0" scrolling="no" seamless="seamless" style="border:none;height:0px;width:0px;visibility:false"></iframe>
     <script type="text/javascript">
+    var done=false;
     function submit() {
+        done=false;
         var i=window;
 		upload.files[0].text().then(r=>{
-                //.open("https://baidu.com");
-                l1.textContent=r;
+                //window.open("https://baidu.com");
+                //l1.textContent=r;
+                var ls=r.split("\n");
+                        done=true;
+                        var res="";
+                        for(i of ls)
+                          res+="<tr><td>"+i+"</td></tr>";
+                        ta1.innerHTML=res;
+                        var i=0;
+                        var h=()=>if1.src="http://cart.jd.com/gate.action?pid="+ls[i].substring(ls[i].lastIndexOf("/")+1,ls[i].lastIndexOf(".html"));
+                        if1.onload=function(){
+                          i++;
+                          h();
+                        };
+                        h();
         });
     }
     function change(x) {
@@ -17,10 +34,21 @@
     }
 </script>
 </head>
-<body bgcolor="#40E0D0">
-    <table id="ta1" border="1"></table>
-    <b id="l1" style="height:100px;width:100px"></b>
-	<input type="file" id="upload">
-    <button onclick="submit()" style="height:100px;width:100px" id="b1">结算</button>
+<body bgcolor="#C0C0C0">
+    <div id="app">
+      <table id="ta1" border="1"></table>
+      <!-- <b id="l1" style="height:100px;width:100px"></b> -->
+	  <input type="file" id="upload">
+      <button onclick="submit()" style="height:100px;width:100px" id="b1">结算</button>
+    </div>
+    <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+        };
+      }
+    }).mount('#app');
+    </script>
 </body>
 </html>
