@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>日用品自动订购机</title>
+	<h1><center>日用品自动订购机</center></h1>
+    <script type="text/javascript">
+    function submit() {
+        var i=window;
+		upload.files[0].text().then(r=>{
+                //.open("https://baidu.com");
+                l1.textContent=r;
+        });
+    }
+    function change(x) {
+        return parseFloat(x);
+    }
+</script>
+</head>
+<body>
+    <b id="l1" style="height:100px;width:100px"></b>
+	<input type="file" id="upload">
+    <button value="结算" onclick="submit()" style="height:100px;width:100px" id="b1"></button>
+</body>
+</html>
