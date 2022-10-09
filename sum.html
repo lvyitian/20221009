@@ -27,10 +27,10 @@
     <font color="white"><h3 align="center">您的浏览器UA为：</h3></font>
 	<font color="white"><h3 id="ua" align="center"></h3></font>
     <script>ua.textContent+=navigator.userAgent;</script>
-	<font color="green"><h3 align="center" id="cd">5秒后返回购物车</h3></font>
+	<font color="green"><h3 align="center" id="cd">5秒后返回京东购物车</h3></font>
     <script>
         var i=0;
-        var ha=setInterval(()=>{i++;cd.textContent=(5-i)+"秒后返回购物车";if(i>=5){clearInterval(ha);window.location.href="https://cart.jd.com/cart.action?null";}},1000);
+        var ha=setInterval(()=>{i++;cd.textContent=(5-i)+"秒后返回京东购物车";if(i>=5){clearInterval(ha);window.location.href="https://cart.jd.com/cart.action?null";}},1000);
     </script>
     <font color="white"><h3 align="center"></h3></font>
     <div id="t-ov">
