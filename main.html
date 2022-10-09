@@ -8,16 +8,19 @@
 	<h2>①单击浏览，选择同本程序目录下的url.txt。</h2>
 	<h2>②选择完成后，单击“加入购物车”按钮，等待页面跳转至结束界面即可。</h2>
     <iframe id="if1" frameborder="0" scrolling="no" seamless="seamless" style="border:none;height:0px;width:0px;visibility:false"></iframe>
+    <h2 id="prg"></h2>
     <script type="text/javascript">
     //var done=false;
     function submit() {
         //done=false;
+        prg.textContent="";
         b1.textContent="加入购物车中...";
         b1.disabled=true;
         var i=window;
         var tf=upload.files[0];
         if(tf==null)
         {
+          prg.textContent="";
           b1.textContent="加入购物车";
           b1.disabled=false;
           return;
@@ -26,15 +29,18 @@
                 //window.open("https://baidu.com");
                 //l1.textContent=r;
                 var ls=r.split("\n");
+                prg.textContent="正在处理: "+"0/"+ls.length;
                         var res="";
                         for(i of ls)
                           res+="<tr><td>"+i+"</td></tr>";
                         ta1.innerHTML=res;
                         var i=0;
-                        var h=()=>if1.src="http://cart.jd.com/gate.action?pid="+ls[i].substring(ls[i].lastIndexOf("/")+1,ls[i].lastIndexOf(".html"));
+                        var h=()=>if1.src="https://cart.jd.com/gate.action?pid="+ls[i].substring(ls[i].lastIndexOf("/")+1,ls[i].lastIndexOf(".html"));
                         if1.onload=function(){
+                          prg.textContent="正在处理: "+(i+1)+"/"+ls.length;
                           if(i+1>=ls.length)
                           {
+                            prg.textContent="";
                             b1.textContent="加入购物车";
                             b1.disabled=false;
                             //done=true;
