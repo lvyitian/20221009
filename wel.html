@@ -12,7 +12,15 @@
         <div>
             <h1 id="h1">Automatic Purchasing Machine</h1>
             <h2 id="h2">日用品自动购买机</h2>
-            <p style="color:white;font-size:20px">页面将于5秒后打开</p>
+            <p style="color:white;font-size:20px" id="cd">页面将于5秒后打开</p>
+            <script>
+                var i=0;
+                var ha=setInterval(()=>{
+                    i++;
+                    cd.textContent="页面将于"+(5-i)+"秒后打开";
+                    if(i>=5) clearInterval(ha);
+                },1000);
+            </script>
 
             <p>&nbsp;</p>
             <p>&nbsp;</p>
@@ -23,11 +31,6 @@
     </div>
 
     <canvas id="canvas"></canvas>
-    <audio autoplay="autoplay">
-        <!-- <source src="http://hovertree.com" type="audio/ogg"> -->
-        <!-- <source src="http://cms.hovertree.com/hovertreesound/hovertreexihuanni.mp3" type="audio/mpeg"> -->
-        <br />
-    </audio>
     <script type="text/javascript" src="./js/hlhs.js">
     </script>
     <script type="text/javascript">
