@@ -24,10 +24,14 @@
 </head>
 <body bgcolor="C0C0C0">
     <font color="red"><h1 align="center">加入购物车已完成 感谢使用</h1></font>
-    <font color="white"><h3 align="center">您的浏览器属性为：</h3></font>
+    <font color="white"><h3 align="center">您的浏览器UA为：</h3></font>
 	<font color="white"><h3 id="ua" align="center"></h3></font>
     <script>ua.textContent+=navigator.userAgent;</script>
-	<font color="green"><h3 align="center">确认安全后返回京东单击结算即可。</h3></font>
+	<font color="green"><h3 align="center" id="cd">5秒后返回购物车</h3></font>
+    <script>
+        var i=0;
+        var ha=setInterval(()=>{i++;cd.textContent=(5-i)+"秒后返回购物车";if(i>=5){clearInterval(ha);window.location.href="https://cart.jd.com/cart.action?null";}},1000);
+    </script>
     <font color="white"><h3 align="center"></h3></font>
     <div id="t-ov">
         <div class="motime">
